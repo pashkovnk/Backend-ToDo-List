@@ -9,7 +9,7 @@ const sequelize = new Sequelize({
     storage: './sqliteData/ToDoshkeee.db'
 });
 
-const ToDo = sequelize.define('ToDo', {
+const ToDo = sequelize.define('ToDoooooooooo', {
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -118,4 +118,3 @@ app.delete('/api/todos', async (req, res) => {
 app.listen(PORT, () => {
     console.log(`Сервер запущен на порту ${PORT}`);
 });
-
