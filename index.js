@@ -85,7 +85,7 @@ app.patch('/api/todos/:id', async (req, res) => {
         if (todo) {
             todo.title = title || todo.title;
             todo.description = description || todo.description;
-            todo.isDone = isDone || todo.isDone;
+            todo.isDone = isDone || false;
             await todo.save();
             res.json(todo);
         } else {
