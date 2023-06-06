@@ -31,6 +31,14 @@ const ToDo = sequelize.define('ToDoooooooooo', {
 
 ToDo.sync();
 
+//Middleware для CORS
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+});
+
 app.use(express.json());
 
 app.get('/api/todos', async (req, res) => {
@@ -117,15 +125,4 @@ app.delete('/api/todos', async (req, res) => {
 
 app.listen(PORT, () => {
     console.log(`Сервер запущен на порту ${PORT}`);
-});
-
-// Middleware для обработки JSON данных
-app.use(express.json());
-
-//Middleware для CORS
-app.use((req, res, next) => {
-res.setHeader('Access-Control-Allow-Origin', '*');
-res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE');
-res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-next();
 });
